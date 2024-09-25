@@ -1,0 +1,43 @@
+.cartItem {
+    position: relative;
+
+    border-radius: 20px;
+    border: 1px solid #F3F3F3;
+
+    margin: 0 30px 20px 30px;
+
+    overflow: hidden;
+    
+    &__content {
+        display: flex;
+
+        & img {
+            width: 70px;
+            height: 70px;
+
+            margin: 20px 21px 29px 20px;
+        }
+    }
+
+    &__text {
+        max-width: 150px;
+        margin: 30px 0 8px 21px;
+
+        & h3 {
+            margin: 0;
+            margin-bottom: 8px;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        & p {
+            font-weight: 700;
+        }
+    }
+
+    &__btn-remove {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+}

@@ -1,0 +1,55 @@
+.sneakers {
+
+    margin-top: 40px;
+
+    &__text {
+        margin-bottom: 40px;
+
+        display: flex;
+        justify-content: space-between;
+        
+        & form {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            border: 1px solid #F3F3F3;
+            border-radius: 10px;
+        }
+
+        & img {
+            margin-left: 18px;
+            margin-right: 14px;
+        }
+
+        & input {
+            font-size: 14px;
+            color: #C4C4C4;
+        }
+
+    }
+
+    &__title {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: calc(39 / 32);
+    }
+}
+
+.clear-btn {
+    // position: absolute;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+
+    padding-bottom: 40px;
+}
