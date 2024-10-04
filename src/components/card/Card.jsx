@@ -9,7 +9,7 @@ import {useState} from 'react';
 const Card = ({ imgUrl, title, price, onFavorite, onAdd}) => {
     const [isHeart, setHeart] = useState(false);
     const onClickHandlerHeart = () => {
-        onFavorite();
+        onFavorite({ title, price, imgUrl });
         setHeart(() => !isHeart);
     };
 

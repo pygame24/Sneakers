@@ -7,8 +7,11 @@ import Card from '../card/Card';
 
 import axios from 'axios';
 
-const Sneakers = ({ setCartItem }) => {
+import { apiKey } from '../../apikey';
+
+const Sneakers = ({ setCartItems }) => {
     const [items, setItems] = useState([]);
+    const [onFavorite, setOnFavorite] = useState([]);
     const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
@@ -20,21 +23,22 @@ const Sneakers = ({ setCartItem }) => {
         //         setItems(data);
         //     })
 
-            axios.get('https://66b5c210b5ae2d11eb6490c0.mockapi.io/items')
+            axios.get(`${apiKey}items`)
                 .then((res) => setItems(res.data));
-            axios.get('https://66b5c210b5ae2d11eb6490c0.mockapi.io/cart')
-                .then((res) => setCartItem(res.data));
+            axios.get(`${apiKey}cart`)
+                .then((res) => setCartItems(res.data));
     }, []);
 
     const onAddToCart = (obj) => {
-        axios.post('https://66b5c210b5ae2d11eb6490c0.mockapi.io/cart', obj);
-        setCartItem((prev) => [...prev, obj]);
+        axios.post(`${apiKey}cart`, obj);
+        setCartItems((prev) => [...prev, obj]);
     }
 
-    const onRemoveItem = (id) => {
-        axios.delete(`https://66b5c210b5ae2d11eb6490c0.mockapi.io/cart/${id}`);
-        // setCartItem((prev) => [...prev, obj]);
+    const onAddToFavorite = (obj) => {
+        // axios.post('', obj);
+        setOnFavorite((prev) => [...prev, obj]);
     }
+
     
     const onChangeSearchValue = (event) => {
         // console.log(event.target.value);
@@ -65,7 +69,7 @@ const Sneakers = ({ setCartItem }) => {
                             title={item.title}
                             price={item.price}
                             imgUrl={item.imgUrl}
-                            onFavorite={() => console.log('❤')}
+                            onFavorite={(obj) => onAddToFavorite(obj)}
                             onAdd={(obj) => onAddToCart(obj)}
                             searchValue={searchValue}
                         />

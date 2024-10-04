@@ -6,6 +6,8 @@ import { useState } from 'react';
 import Header from './components/header/Header';
 import Drawer from './components/drawer/Drawer';
 import Sneakers from './components/sneakers/Sneakers';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Favorite from './components/favorite/Favorite';
 
 
 function App() {
@@ -27,12 +29,28 @@ function App() {
   // const onAddToCart = (obj) => {
   //   setCartItems((prev) => [...prev, obj]);
   // };
+
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Sneakers setCartItems={setCartItems} />
+    },
+    {
+      path: '/favorite',
+      element: <Favorite />
+    }
+  ])
+
   return (
     <div className="wrapper clear">
       {cartOpened && <Drawer cartItems={cartItems} onClose={() => setCartOpened(false)} />}
       <Header onOpenedCart={() => setCartOpened(true)} />
       
-      <Sneakers setCartItem={setCartItems} />
+      <RouterProvider router={router}>
+        
+      </RouterProvider>
+      {/* <Sneakers setCartItem={setCartItems} /> */}
     </div>
   )
 }

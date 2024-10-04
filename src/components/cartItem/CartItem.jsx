@@ -1,6 +1,9 @@
 // import removeBtn from '../../img/remove-btn.svg';
 
-const CartItem = ({ imgUrl, title, price}) => {
+import { useState } from "react";
+
+const CartItem = ({ imgUrl, title, price, onRemoveItem }) => {
+    
     return (
         <div className="cartItem">
             <div className="cartItem__content">
@@ -10,7 +13,7 @@ const CartItem = ({ imgUrl, title, price}) => {
                     <p>{price} руб.</p>
                 </div>
             </div>
-            <button className='cartItem__btn-remove'><img src="/img/remove-btn.svg" alt="" /></button>
+            <button onClick={onRemoveItem} className='cartItem__btn-remove'><img src="/img/remove-btn.svg" alt="" /></button>
         </div>
     );
 };

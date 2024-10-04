@@ -349,6 +349,43 @@ body {
 .drawer .cartItems {
   flex: 1;
   overflow: auto;
+  align-items: center;
+}
+.drawer .cartEmpty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.drawer .cartEmpty img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+.drawer .cartEmpty p {
+  width: 280px;
+  line-height: 24px;
+  opacity: 0.6;
+}
+.drawer .greenButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px 30px 30px;
+}
+.drawer .greenButton:hover img {
+  transform: rotate(180deg) translateX(3px);
+}
+.drawer .greenButton img {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 10px;
+  transform: rotate(180deg);
+  margin-right: 15px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .cartItem {
@@ -383,4 +420,8 @@ body {
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+
+.favorites {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */
